@@ -8,6 +8,7 @@ public class StandardError implements Serializable {
 	private Integer status;
 	private String msg;
 	private String timeStamp;
+	
 	public StandardError(Integer status, String msg, String timeStamp) {
 		super();
 		this.status = status;
