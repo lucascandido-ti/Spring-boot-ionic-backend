@@ -32,6 +32,8 @@ public class Produto implements Serializable {
 			   )
 	private List<Categoria> categorias = new ArrayList<>();
 
+
+	
 	public Produto() {
 	}
 
@@ -74,6 +76,7 @@ public class Produto implements Serializable {
 		this.categorias = categorias;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -98,5 +101,7 @@ public class Produto implements Serializable {
 			return false;
 		return true;
 	}
+
+	
 
 }
