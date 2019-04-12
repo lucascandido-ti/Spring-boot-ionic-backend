@@ -14,7 +14,6 @@ import com.lucascandido.cursomc.repositories.ItemPedidoRepository;
 import com.lucascandido.cursomc.repositories.PagamentoRepository;
 import com.lucascandido.cursomc.repositories.PedidoRepository;
 import com.lucascandido.cursomc.services.exceptions.ObjectNotFoundException;
-import com.lucascandido.cursomc.services.BoletoServices;
 
 @Service
 public class PedidoServices {
@@ -34,6 +33,9 @@ public class PedidoServices {
 	@Autowired
 	private ItemPedidoRepository ipRepository;
 	
+	@Autowired
+	private ClienteServices clienteServices;
+	
 	public Pedido find(Integer id) {
 		
 			Optional<Pedido> obj = repo.findById(id);
@@ -44,6 +46,7 @@ public class PedidoServices {
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);
 		obj.setInstante(new Date());
+		obj.setCliente(clienteServices.find(obj.getCliente().getId()));
 		obj.getPagamento().setEstadoPagamento(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		
@@ -56,10 +59,12 @@ public class PedidoServices {
 		
 		for(ItemPedido ip : obj.getItens()) {
 			ip.setDesconto(0.0);
-			ip.setPreco(produtoServices.find(ip.getProduto().getId()).getPreco());
+			ip.setProduto(produtoServices.find(ip.getProduto().getId()));
+			ip.setPreco(ip.getProduto().getPreco());
 			ip.setPedido(obj);
 		}
 		ipRepository.saveAll(obj.getItens());
+		System.out.println(obj);
 		return obj;
 	}
 }
