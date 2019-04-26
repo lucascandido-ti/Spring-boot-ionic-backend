@@ -24,7 +24,7 @@ import com.lucascandido.cursomc.services.CategoriaServices;
 
 @RestController
 @RequestMapping(value = "/categorias")
-public class CategoriaResourse {
+public class CategoriaResource {
 
 	@Autowired
 	private CategoriaServices service;

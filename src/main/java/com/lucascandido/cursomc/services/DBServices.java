@@ -229,9 +229,9 @@ public class DBServices {
 		cli2.getTelefones().addAll(Arrays.asList("99963329", "999938399"));
 		cli2.addPerfil(Perfil.ADMIN);
 		
-		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", c1, cli1);
-		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", c2, cli1);
-		Endereco e3 = new Endereco(null, "Avenida Floriano", "2103", null, "Centro", "22975684", c2, cli2);
+		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto 303", "Jardim", "38220834", cli1, c1);
+		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
+		Endereco e3 = new Endereco(null, "Avenida Floriano", "2103", null, "Centro", "22975684", cli2, c2);
 
 		cli1.getEndereco().addAll(Arrays.asList(e1, e2));
 		cli2.getEndereco().addAll(Arrays.asList(e3));

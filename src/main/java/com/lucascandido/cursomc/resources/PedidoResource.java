@@ -20,7 +20,7 @@ import com.lucascandido.cursomc.services.PedidoServices;
 
 @RestController
 @RequestMapping(value="/pedidos")
-public class PedidoResourse {
+public class PedidoResource {
 	
 	@Autowired
 	private PedidoServices service;

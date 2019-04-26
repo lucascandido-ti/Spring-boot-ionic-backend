@@ -12,12 +12,13 @@ import com.lucascandido.cursomc.domain.PagamentoComCartao;
 public class JacksonConfig {
 	@Bean
 	public Jackson2ObjectMapperBuilder objectMapperBuilder() {
-		Jackson2ObjectMapperBuilder build = new Jackson2ObjectMapperBuilder() {
+		Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder() {
 			public void configure(ObjectMapper objectMapper) {
 				objectMapper.registerSubtypes(PagamentoComCartao.class);
 				objectMapper.registerSubtypes(PagamentoComBoleto.class);
-			};
+				super.configure(objectMapper);
+			}
 		};
-		return build;
+		return builder;
 	}
 }

@@ -9,69 +9,49 @@ import org.hibernate.validator.constraints.Length;
 
 import com.lucascandido.cursomc.services.validation.ClienteInsert;
 
-
 @ClienteInsert
 public class ClienteNewDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-
-	@NotEmpty(message = "Preenchimento Obrigatório !")
-	@Length(min = 5, max = 80, message = "O tamanho deve ser entre 5 e 80 caracteres")
+	
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Length(min=5, max=120, message="O tamanho deve ser entre 5 e 120 caracteres")
 	private String nome;
-	
-	@NotEmpty(message = "Email invalido !")
-	@Email
+
+	@NotEmpty(message="Preenchimento obrigatório")
+	@Email(message="Email inválido")
 	private String email;
-	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String cpfOuCnpj;
+
+	private Integer tipo;
 	
-	private Integer tipoCliente;
-	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String senha;
 	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String logradouro;
-	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String numero;
-	
+
 	private String complemento;
-	
+
 	private String bairro;
-	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String cep;
 	
-	@NotEmpty(message = "Preenchimento Obrigatório !")
+	@NotEmpty(message="Preenchimento obrigatório")
 	private String telefone1;
-	
+
 	private String telefone2;
 	
 	private String telefone3;
-	
+
 	private Integer cidadeId;
 	
 	public ClienteNewDTO() {
-	}
-
-	public ClienteNewDTO(String nome, String email, String cpfOuCnpj, Integer tipoCliente, String logradouro,
-			String numero, String complemento, String bairro, String cep, String telefone1, String telefone2,
-			String telefone3, Integer cidadeId) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipoCliente = tipoCliente;
-		this.logradouro = logradouro;
-		this.numero = numero;
-		this.complemento = complemento;
-		this.bairro = bairro;
-		this.cep = cep;
-		this.telefone1 = telefone1;
-		this.telefone2 = telefone2;
-		this.telefone3 = telefone3;
-		this.cidadeId = cidadeId;
 	}
 
 	public String getNome() {
@@ -98,12 +78,12 @@ public class ClienteNewDTO implements Serializable {
 		this.cpfOuCnpj = cpfOuCnpj;
 	}
 
-	public Integer getTipoCliente() {
-		return tipoCliente;
+	public Integer getTipo() {
+		return tipo;
 	}
 
-	public void setTipoCliente(Integer tipoCliente) {
-		this.tipoCliente = tipoCliente;
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getLogradouro() {
@@ -177,14 +157,12 @@ public class ClienteNewDTO implements Serializable {
 	public void setCidadeId(Integer cidadeId) {
 		this.cidadeId = cidadeId;
 	}
-
+	
 	public String getSenha() {
 		return senha;
 	}
-
+	
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
 }
